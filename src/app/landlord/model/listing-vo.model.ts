@@ -1,4 +1,4 @@
-export interface GuestVO {
+export interface GuestsVO {
     value: number
 }
 

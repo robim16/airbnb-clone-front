@@ -1,5 +1,5 @@
 import { computed, inject, Injectable, signal, WritableSignal } from '@angular/core';
-import { CardListing, CreatedListing, NewListingInfo } from './landlord/model/listing.model';
+import { CardListing, CreatedListing, NewListing, NewListingInfo } from './landlord/model/listing.model';
 import { State } from './core/model/state.model';
 import { environment } from '../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -25,7 +25,7 @@ export class LandlordListingService {
     signal(State.Builder<string>().forInit())
   deleteSig = computed(() => this.delete$());
 
-  create(newListing: NewListingInfo): void {
+  create(newListing: NewListing): void {
     const formData = new FormData();
     for(let i = 0; i < newListing.pictures.length; ++i) {
       formData.append("picture-" + i, newListing.pictures[i].file);

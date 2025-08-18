@@ -5,10 +5,10 @@ import { ToastService } from '../../layout/toast.service';
 import { LandlordListingService } from '../../landlord-listing.service';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Step } from './step.model';
-import { CreatedListing, Description, NewListing } from '../model/listing.model';
+import { CreatedListing, Description, NewListing, NewListingInfo } from '../model/listing.model';
 import { NewListingPicture } from '../model/picture.model';
 import { State } from '../../core/model/state.model';
-import { CategoryName } from '../../layout/category.model';
+import {CategoryName} from "../../layout/navbar/category/category.model";
 import { PriceVO } from '../model/listing-vo.model';
 import { CategoryStepComponent } from './category-step/category-step.component';
 
@@ -16,12 +16,12 @@ import { CategoryStepComponent } from './category-step/category-step.component';
   selector: 'app-properties-create',
   imports: [ 
     CategoryStepComponent,
-    FooterStepComponent,
-    LocationStepComponent,
-    InfoStepComponent,
-    PictureStepComponent,
-    DescriptionStepComponent,
-    PriceStepComponent
+    // FooterStepComponent,
+    // LocationStepComponent,
+    // InfoStepComponent,
+    // PictureStepComponent,
+    // DescriptionStepComponent,
+    // PriceStepComponent
   ],
   templateUrl: './properties-create.component.html',
   styleUrl: './properties-create.component.scss'

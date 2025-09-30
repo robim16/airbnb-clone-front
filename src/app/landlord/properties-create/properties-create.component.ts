@@ -10,19 +10,15 @@ import { NewListingPicture } from '../model/picture.model';
 import { State } from '../../core/model/state.model';
 import {CategoryName} from "../../layout/navbar/category/category.model";
 import { PriceVO } from '../model/listing-vo.model';
-import { CategoryStepComponent } from './category-step/category-step.component';
+import { CategoryStepComponent } from './step/category-step/category-step.component';
+import { FooterStepComponent } from "../../shared/footer-step/footer-step.component";
 
 @Component({
   selector: 'app-properties-create',
-  imports: [ 
+  imports: [
     CategoryStepComponent,
-    // FooterStepComponent,
-    // LocationStepComponent,
-    // InfoStepComponent,
-    // PictureStepComponent,
-    // DescriptionStepComponent,
-    // PriceStepComponent
-  ],
+    FooterStepComponent
+],
   templateUrl: './properties-create.component.html',
   styleUrl: './properties-create.component.scss'
 })

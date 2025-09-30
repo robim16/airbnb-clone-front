@@ -20,8 +20,15 @@ export class FooterStepComponent {
   @Output()
   next = new EventEmitter<boolean>();
 
-  onFinish(): void {
-    this.finish.emit(true)
+ onFinish() {
+    this.finish.emit(true);
   }
 
+  onPrevious() {
+    this.previous.emit(true);
+  }
+
+  onNext() {
+    this.next.emit(true);
+  }
 }

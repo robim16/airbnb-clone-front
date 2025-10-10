@@ -18,6 +18,7 @@ export class CountryService {
 
   constructor() { 
     this.initFetchGetAllCountries()
+    this.fetchCountry$.subscribe()
   }
 
   initFetchGetAllCountries(): void {

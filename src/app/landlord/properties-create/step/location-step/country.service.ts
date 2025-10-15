@@ -1,24 +1,25 @@
-import { HttpClient } from '@angular/common/http';
-import { computed, inject, Injectable, signal, WritableSignal } from '@angular/core';
-import { State } from '../../../../core/model/state.model';
-import { Country } from './country.model';
-import { Observable } from 'rxjs';
+import {computed, inject, Injectable, signal, WritableSignal} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Country} from "./country.model";
+import {State} from "../../../../core/model/state.model";
+import {catchError, map, Observable, of, shareReplay, tap} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CountryService {
-  http: HttpClient = inject(HttpClient)
 
-  private countries$: WritableSignal<State<Array<Country>>> = 
-    signal(State.Builder<Array<Country>>().forInit())
-  countries = computed(() => this.countries$())
+  http = inject(HttpClient);
 
-  private fetchCountry$ = new Observable<Array<Country>>()
+  private countries$: WritableSignal<State<Array<Country>>> =
+    signal(State.Builder<Array<Country>>().forInit());
+  countries = computed(() => this.countries$());
 
-  constructor() { 
-    this.initFetchGetAllCountries()
-    this.fetchCountry$.subscribe()
+  private fetchCountry$ = new Observable<Array<Country>>();
+
+  constructor() {
+    this.initFetchGetAllCountries();
+    this.fetchCountry$.subscribe();
   }
 
   initFetchGetAllCountries(): void {
@@ -32,5 +33,12 @@ export class CountryService {
         }),
         shareReplay(1)
       );
+  }
+
+  public getCountryByCode(code: string): Observable<Country> {
+    return this.fetchCountry$.pipe(
+      map(countries => countries.filter(country => country.cca3 === code)),
+      map(countries => countries[0])
+    );
   }
 }

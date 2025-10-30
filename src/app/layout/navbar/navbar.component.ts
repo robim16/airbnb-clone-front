@@ -13,6 +13,7 @@ import { User } from '../../core/model/user.model';
 import { ActivatedRoute } from '@angular/router';
 import { PropertiesCreateComponent } from '../../landlord/properties-create/properties-create.component';
 import dayjs from 'dayjs'
+import { SearchComponent } from '../../tenant/search/search.component';
 
 @Component({
   selector: 'app-navbar',

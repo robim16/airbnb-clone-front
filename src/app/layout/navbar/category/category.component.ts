@@ -45,10 +45,10 @@ export class CategoryComponent implements OnInit {
           this.isHome = evt.url.split("?")[0] === "/";
           if (this.isHome && evt.url.indexOf("?") === -1) {
             const categoryByTechnicalName = this.categoryService.getCategoryByTechnicalName("ALL");
-            this.categoryService.changeCategory(categoryByTechnicalName!);
+            this.categoryService.changeCategory(categoryByTechnicalName!);// si es la página de inicio sin parámetros, establece la categoría en "ALL"
           }
         },
-      });
+      });//obtiene la ruta actual y verifica si es la página de inicio
 
     this.activatedRoute.queryParams
       .pipe(

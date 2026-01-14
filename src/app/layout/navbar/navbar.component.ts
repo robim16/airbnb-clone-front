@@ -30,7 +30,7 @@ import { SearchComponent } from '../../tenant/search/search.component';
 })
 export class NavbarComponent implements OnInit {
 
- location = "Anywhere";
+  location = "Anywhere";
   guests = "Add guests";
   dates = "Any week";
 
@@ -52,7 +52,7 @@ export class NavbarComponent implements OnInit {
   constructor() {
     effect(() => {
       if (this.authService.fetchUser().status === "OK") {
-        this.connectedUser = this.authService.fetchUser().value!;
+        this.connectedUser = this.authService.fetchUser().value!;//obtener usuario conectado
         this.currentMenuItems = this.fetchMenu()
       }
     })

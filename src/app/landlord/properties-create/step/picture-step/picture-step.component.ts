@@ -26,7 +26,7 @@ export class PictureStepComponent {
     if (target === null || htmlInputTarget.files === null) {
       return null;
     }
-    return htmlInputTarget.files;
+    return htmlInputTarget.files;//archivos extraidos del input al recibir el evento
   }
 
   onUploadNewPicture(target: EventTarget | null) {
@@ -39,7 +39,7 @@ export class PictureStepComponent {
             file: picture,
             urlDisplay: URL.createObjectURL(picture)
           }
-          this.pictures().push(displayPicture);
+          this.pictures().push(displayPicture);//agrego la nueva imagen al array de imagenes
         }
       }
       this.picturesChange.emit(this.pictures());

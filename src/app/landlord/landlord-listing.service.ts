@@ -14,11 +14,11 @@ export class LandlordListingService {
   constructor() { }
 
   private create$: WritableSignal<State<CreatedListing>>
-    = signal(State.Builder<CreatedListing>().forInit())
+    = signal(State.Builder<CreatedListing>().forInit())//crea un estado inicial de tipo State<CreatedListing>
   createSig = computed(() => this.create$());
 
   private getAll$: WritableSignal<State<Array<CardListing>>> =
-    signal(State.Builder<Array<CardListing>>().forInit())
+    signal(State.Builder<Array<CardListing>>().forInit())//signal que mantiene el estado de la obtencion de todas las propiedades
   getAllSig = computed(() => this.getAll$());
 
   private delete$: WritableSignal<State<string>> =

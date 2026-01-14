@@ -6,7 +6,7 @@ import { CountryService } from '../country.service';
 import { ToastService } from '../../../../../layout/toast.service';
 import { OpenStreetMapProvider } from 'leaflet-geosearch'
 import { Country } from '../country.model';
-import { circle, latLng, polygon, tileLayer } from 'leaflet';
+import L, { circle, latLng, polygon, tileLayer } from 'leaflet';
 import {filter} from "rxjs";
 
 @Component({
@@ -30,6 +30,8 @@ export class LocationMapComponent {
 
   @Output()
   locationChange = new EventEmitter<string>();
+
+  //este componente emite el cambio de ubicación cuando el usuario selecciona un país del autocomplete
 
   formatLabel = (country: Country) => country.flag + "   " + country.name.common;
 
@@ -105,7 +107,7 @@ export class LocationMapComponent {
               .bindPopup(firstResult.label)
               .openPopup();
           }
-        })
+        })//busca el país y centra el mapa ahí usando las coordenadas del primer resultado
     }
   }
 

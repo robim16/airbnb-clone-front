@@ -67,7 +67,7 @@ export class ReservationComponent implements OnInit, OnDestroy {
       const reservedListingsState = this.bookingService.getBookedListingForLandlordSig();
       if (reservedListingsState.status === "OK") {
         this.loading = false;
-        this.reservationListings = reservedListingsState.value!;
+        this.reservationListings = reservedListingsState.value!;//asignacion de las reservas obtenidas
       } else if(reservedListingsState.status === "ERROR") {
         this.loading = false;
         this.toastService.send({

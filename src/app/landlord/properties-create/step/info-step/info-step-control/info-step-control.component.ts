@@ -1,6 +1,5 @@
 import { Component, EventEmitter, input, Output } from '@angular/core';
-import { FaIconComponent } from "../../../../../../../node_modules/@fortawesome/angular-fontawesome/icon/icon.component";
-
+import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 @Component({
   selector: 'app-info-step-control',
   imports: [FaIconComponent],

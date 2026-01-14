@@ -16,7 +16,7 @@ export class TenantListingService {
   http = inject(HttpClient);
 
   private getAllByCategory$: WritableSignal<State<Page<CardListing>>>
-  = signal(State.Builder<Page<CardListing>>().forInit())
+  = signal(State.Builder<Page<CardListing>>().forInit())// crea un signal con el estado inicial 
   getAllByCategorySig = computed(() => this.getAllByCategory$());
 
   private getOneByPublicId$: WritableSignal<State<Listing>>

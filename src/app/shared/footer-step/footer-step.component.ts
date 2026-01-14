@@ -1,9 +1,10 @@
 import { Component, EventEmitter, input, Output } from '@angular/core';
 import { Step } from '../../landlord/properties-create/step.model';
+import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 
 @Component({
   selector: 'app-footer-step',
-  imports: [],
+  imports: [FaIconComponent],
   templateUrl: './footer-step.component.html',
   styleUrl: './footer-step.component.scss'
 })

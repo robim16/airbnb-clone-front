@@ -129,7 +129,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             baths: {value: params['baths']},
           },
           location: params['location'],
-        };
+        };//accede a los query params y crea un objeto search para invocar al servicio de busqueda
 
         this.tenantListingService.searchListing(newSearch, this.pageRequest);
       }

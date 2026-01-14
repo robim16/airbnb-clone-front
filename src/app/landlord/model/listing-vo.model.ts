@@ -1,9 +1,9 @@
 export interface GuestsVO {
-    value: number
+  value: number
 }
 
 export interface BedroomsVO {
-    value: number
+  value: number
 }
 
 export interface BedsVO {

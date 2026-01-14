@@ -8,7 +8,7 @@ import { Step } from './step.model';
 import { CreatedListing, Description, NewListing, NewListingInfo } from '../model/listing.model';
 import { NewListingPicture } from '../model/picture.model';
 import { State } from '../../core/model/state.model';
-import {CategoryName} from "../../layout/navbar/category/category.model";
+import { CategoryName } from "../../layout/navbar/category/category.model";
 import { PriceVO } from '../model/listing-vo.model';
 import { CategoryStepComponent } from './step/category-step/category-step.component';
 import { FooterStepComponent } from "../../shared/footer-step/footer-step.component";
@@ -28,13 +28,13 @@ import { PriceStepComponent } from "./step/price-step/price-step.component";
     PictureStepComponent,
     DescriptionStepComponent,
     PriceStepComponent
-],
+  ],
   templateUrl: './properties-create.component.html',
   styleUrl: './properties-create.component.scss'
 })
 export class PropertiesCreateComponent implements OnDestroy {
 
-   CATEGORY = "category";
+  CATEGORY = "category";
   LOCATION = "location";
   INFO = "info";
   PHOTOS = "photos";
@@ -91,18 +91,18 @@ export class PropertiesCreateComponent implements OnDestroy {
   newListing: NewListing = {
     category: "AMAZING_VIEWS",
     infos: {
-      guests: {value: 0},
-      bedrooms: {value: 0},
-      beds: {value: 0},
-      baths: {value: 0}
+      guests: { value: 0 },
+      bedrooms: { value: 0 },
+      beds: { value: 0 },
+      baths: { value: 0 }
     },
     location: "",
     pictures: new Array<NewListingPicture>(),
     description: {
-      title: {value: ""},
-      description: {value: ""}
+      title: { value: "" },
+      description: { value: "" }
     },
-    price: {value: 0}
+    price: { value: 0 }
   };
 
   loadingCreation = false;
@@ -148,7 +148,7 @@ export class PropertiesCreateComponent implements OnDestroy {
       severity: "success", summary: "Success", detail: "Listing created successfully.",
     });
     this.dialogDynamicRef.close(createdListingState.value?.publicId);
-    this.userService.fetch(true);
+    this.userService.fetch(true);//refresh user to update listings count
   }
 
   private onCreateError() {

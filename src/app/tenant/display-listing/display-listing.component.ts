@@ -62,7 +62,7 @@ export class DisplayListingComponent implements OnInit, OnDestroy {
   private fetchListing(publicId: string) {
     this.loading = true;
     this.currentPublicId = publicId;
-    this.tenantListingService.getOneByPublicId(publicId);
+    this.tenantListingService.getOneByPublicId(publicId);// llama al servicio para obtener el listing por su publicId
   }
 
   private listenToFetchListing() {
@@ -95,7 +95,7 @@ export class DisplayListingComponent implements OnInit, OnDestroy {
   private putCoverPictureFirst(pictures: Array<DisplayPicture>) {
     const coverIndex = pictures.findIndex(picture => picture.isCover);
     if (coverIndex) {
-      const cover = pictures[coverIndex];
+      const cover = pictures[coverIndex];//busca la imagen de portada y la pone al inicio del array
       pictures.splice(coverIndex, 1);
       pictures.unshift(cover);
     }

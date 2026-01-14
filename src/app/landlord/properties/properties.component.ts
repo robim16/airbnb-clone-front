@@ -24,6 +24,8 @@ export class PropertiesComponent implements OnInit, OnDestroy {
   loadingDeletion = false;
   loadingFetchAll = false;
 
+  //listado de propiedades del arrendador
+
 
   constructor() {
     this.listenFetchAll();
@@ -32,7 +34,7 @@ export class PropertiesComponent implements OnInit, OnDestroy {
 
   private listenFetchAll() {
     effect(() => {
-      const allListingState = this.landlordListingService.getAllSig();
+      const allListingState = this.landlordListingService.getAllSig();//obtiene el estado de la obtencion de todas las propiedades
       if (allListingState.status === "OK" && allListingState.value) {
         this.loadingFetchAll = false;
         this.listings = allListingState.value;
@@ -46,7 +48,7 @@ export class PropertiesComponent implements OnInit, OnDestroy {
 
   private listenDeleteByPublicId() {
     effect(() => {
-      const deleteState = this.landlordListingService.deleteSig();
+      const deleteState = this.landlordListingService.deleteSig();//accede al estado de la eliminacion de una propiedad
       if (deleteState.status === "OK" && deleteState.value) {
         const listingToDeleteIndex = this.listings?.findIndex(listing => listing.publicId === deleteState.value);
         this.listings?.splice(listingToDeleteIndex!, 1);

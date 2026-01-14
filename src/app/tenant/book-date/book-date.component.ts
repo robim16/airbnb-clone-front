@@ -43,7 +43,7 @@ export class BookDateComponent implements OnInit, OnDestroy {
     this.listenToCheckAvailableDate();
     this.listenToCreateBooking()
   }
-
+  //sirve para crear una reserva
 
   ngOnDestroy(): void {
     this.bookingService.resetCreateBooking();
@@ -85,7 +85,7 @@ export class BookDateComponent implements OnInit, OnDestroy {
     effect(() => {
       const checkAvailabilityState = this.bookingService.checkAvailabilitySig();
       if (checkAvailabilityState.status === "OK") {
-        this.bookedDates = this.mapBookedDatesToDate(checkAvailabilityState.value!);
+        this.bookedDates = this.mapBookedDatesToDate(checkAvailabilityState.value!);//mapea las fechas no disponibles a un array de Date
       } else if (checkAvailabilityState.status === "ERROR") {
         this.toastService.send({
           severity: "error", detail: "Error when fetching the not available dates", summary: "Error",
